@@ -50,16 +50,16 @@ export default function Navigation() {
         scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="relative w-40 h-12">
+          <Link href="/" className="flex items-center md:ml-0">
+            <div className="relative w-32 sm:w-40 h-10 sm:h-12 -ml-2">
               <Image
                 src="/logo.png"
                 alt="Aslot & Associates"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 style={{
                   filter: isBlackBackground && !scrolled ? 'invert(1)' : 'none',
                   transition: 'filter 0.3s ease'
@@ -95,7 +95,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2"
+            className="md:hidden -mr-1"
             aria-label="Toggle menu"
           >
             <div className="w-6 h-5 flex flex-col justify-between">
