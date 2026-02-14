@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import CTAFooter from "../Components/CTAFooter";
 
 export default function WorkWithUsPage() {
   const [formData, setFormData] = useState({
@@ -200,6 +201,7 @@ export default function WorkWithUsPage() {
           )}
         </div>
       </section>
+       <CTAFooter />
     </>
   );
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import CTAFooter from "../Components/CTAFooter";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -65,23 +66,22 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-inter font-medium mb-2">Email</h3>
-                  <a href="mailto:contact@aslotassociates.com" className="font-inter text-gray-600 hover:text-black transition-colors">
-                    contact@aslotassociates.com
+                  <a href="mailto:ishan.aslot.ca@gmail.com" className="font-inter text-gray-600 hover:text-black transition-colors">
+                    ishan.aslot.ca@gmail.com
                   </a>
                 </div>
 
                 <div>
                   <h3 className="font-inter font-medium mb-2">Phone</h3>
-                  <a href="tel:+911234567890" className="font-inter text-gray-600 hover:text-black transition-colors">
-                    +91 123 456 7890
+                  <a href="tel:+919099976099" className="font-inter text-gray-600 hover:text-black transition-colors">
+                    +91 9099976099
                   </a>
                 </div>
 
                 <div>
                   <h3 className="font-inter font-medium mb-2">Office</h3>
                   <p className="font-inter text-gray-600">
-                    Surat, Gujarat<br />
-                    India
+                    9, Gr. Floor, West side, Vishwakarma Society b/h Vishwakarma temple,<br /> Nr. ITC Building, Majura Gate, <br />Surat, <br />Gujarat,<br /> India - 395002.
                   </p>
                 </div>
               </div>
@@ -196,6 +196,7 @@ export default function ContactPage() {
           </p>
         </div>
       </section>
+       <CTAFooter />
     </>
   );
 }

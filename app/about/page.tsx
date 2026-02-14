@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import CTAFooter from "../Components/CTAFooter";
 
 export default function AboutPage() {
   return (
@@ -169,6 +170,7 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
+       <CTAFooter />
     </>
   );
 }

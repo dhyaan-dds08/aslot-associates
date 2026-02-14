@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
+import CTAFooter from "../Components/CTAFooter";
 
 export default function InvoicePaymentPage() {
   const [paymentData, setPaymentData] = useState({
@@ -205,6 +206,7 @@ export default function InvoicePaymentPage() {
           </a>
         </div>
       </section>
+       <CTAFooter />
     </>
   );
 }
