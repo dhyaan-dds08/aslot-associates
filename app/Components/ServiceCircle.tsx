@@ -70,7 +70,7 @@ export default function ServicesCircle() {
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
-              style={{ rotate: circleRotate }}
+             
               className={`absolute rounded-full border border-black/60`}
               // inset must match circleInset
               {...{ style: { inset: `${circleInset}%`, rotate: circleRotate } }}
@@ -154,7 +154,7 @@ export default function ServicesCircle() {
                         ? "rgba(0,0,0,1)"
                         : "rgba(0,0,0,0.6)",
                     }}
-                    transition={{ duration: 0.25 }}
+                 
                   />
 
                   {/* Label */}

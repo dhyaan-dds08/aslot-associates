@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 220">
+    <style>
+        .text {
+            font-family: "Times New Roman", Georgia, serif;
+            fill: #ffffff;
+        }
+    </style>
+
+    <text x="0" y="90" font-size="96" class="text">Aslot &amp;</text>
+    <text x="0" y="190" font-size="96" class="text">Associates</text>
+</svg>

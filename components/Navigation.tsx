@@ -54,22 +54,22 @@ const navLinks = [
       <div className="max-w-7xl mx-auto px-6 md:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center md:ml-0">
-            <div className="relative w-32 sm:w-40 h-10 sm:h-12 -ml-2">
-              <Image
-                src="/logo.png"
-                alt="Aslot & Associates"
-                fill
-                className="object-contain object-left"
-                style={{
-                  filter: isBlackBackground && !scrolled ? 'invert(1)' : 'none',
-                  transition: 'filter 0.3s ease'
-                }}
-                priority
-              />
-            </div>
-          </Link>
-
+{/* Logo */}
+<Link href="/" className="flex items-center md:ml-0">
+  <div className="relative w-32 sm:w-36 h-8 sm:h-10 -ml-2">
+    <Image
+      src="/logo.svg"
+      alt="Aslot & Associates"
+      fill
+      className="object-contain object-left"
+      style={{
+        filter: isBlackBackground && !scrolled ? 'none' : 'invert(1)',
+        transition: 'filter 0.3s ease'
+      }}
+      priority
+    />
+  </div>
+</Link>
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
