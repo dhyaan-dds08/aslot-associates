@@ -35,70 +35,69 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero Section - Black Background */}
-      <section className="min-h-screen bg-black text-white flex items-center justify-center px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="font-cormorant text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light leading-tight mb-8"
-          >
-            A strategic finance and advisory firm partnering with businesses on
-            <br />
-            <span className="inline-block relative">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentWord}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ 
-                    duration: 0.5,
-                    ease: [0.43, 0.13, 0.23, 0.96]
-                  }}
-                  className="font-medium"
-                >
-                  {rotatingWords[currentWord]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            
-          </motion.h1>
-
-          {/* Progress dots indicator */}
-          <div className="flex justify-center gap-2 mb-12">
-            {rotatingWords.map((_, index) => (
-              <motion.div
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  currentWord === index ? "bg-white scale-125" : "bg-white/30"
-                }`}
-              />
-            ))}
-          </div>
-
-          <motion.div
+{/* Hero Section - Black Background */}
+<section className="min-h-screen bg-black text-white flex items-center px-6 lg:px-12">
+  <div className="max-w-6xl w-full mx-auto">
+    <motion.h1
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="font-cormorant text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight mb-8"
+    >
+      A strategic finance and advisory firm partnering with businesses on
+      <br />
+      <span className="inline-block relative">
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={currentWord}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+              duration: 0.5,
+              ease: [0.43, 0.13, 0.23, 0.96],
+            }}
+            className="font-medium"
           >
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white text-black font-inter text-sm tracking-wide hover:bg-gray-100 transition-colors"
-            >
-              Engage With Us
-            </Link>
-            <Link
-              href="#services"
-              className="px-8 py-4 border border-white text-white font-inter text-sm tracking-wide hover:bg-white hover:text-black transition-colors"
-            >
-              Explore Our Advisory Services
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+            {rotatingWords[currentWord]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+    </motion.h1>
+
+    {/* Progress dots indicator */}
+    <div className="flex gap-2 mb-12">
+      {rotatingWords.map((_, index) => (
+        <motion.div
+          key={index}
+          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+            currentWord === index ? "bg-white scale-125" : "bg-white/30"
+          }`}
+        />
+      ))}
+    </div>
+
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      className="flex flex-col sm:flex-row gap-3 sm:gap-4"
+    >
+      <Link
+        href="/contact"
+        className="px-8 py-4 bg-white text-black font-inter text-sm tracking-wide hover:bg-gray-100 transition-colors text-center"
+      >
+        Engage With Us
+      </Link>
+      <Link
+        href="#services"
+        className="px-8 py-4 border border-white text-white font-inter text-sm tracking-wide hover:bg-white hover:text-black transition-colors text-center"
+      >
+        Explore Our Advisory Services
+      </Link>
+    </motion.div>
+  </div>
+</section>
 
       {/* Services Section */}
     <ServicesCircle/>
