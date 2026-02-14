@@ -20,7 +20,7 @@ export default function Navigation() {
 
   // Pages with black backgrounds
   const blackBackgroundPages = ["/", "/work-with-us"];
-  const isBlackBackground = blackBackgroundPages.includes(pathname);
+  const isBlackBackground = true;
 
   // Text color logic:
   // - Black background pages: white text when not scrolled, black text when scrolled
@@ -37,9 +37,10 @@ export default function Navigation() {
   // Hamburger menu color
   const hamburgerColor = isBlackBackground && !scrolled ? "bg-white" : "bg-black";
 
-  const navLinks = [
+const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
+    { href: "/#services", label: "Our Services" },
     { href: "/work-with-us", label: "Work With Us" },
     { href: "/contact", label: "Contact" },
   ];
@@ -84,12 +85,12 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Link
+            {/* <Link
               href="/invoice-payment"
               className={`px-6 py-2.5 ${buttonBg} ${buttonText} font-inter text-sm tracking-wide ${buttonHover} transition-colors`}
             >
               Pay Invoice
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}

@@ -31,7 +31,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-white">
+      <section className="pt-32 pb-16 bg-black text-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}

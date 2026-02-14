@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function HomePage() {
   const [currentWord, setCurrentWord] = useState(0);
-  const rotatingWords = ["governance", "audits", "transactions", "long-term financial decision-making"];
+  const rotatingWords = ["long term financial decision making", "transaction advisory", "audits", "governance"];
 
   useEffect(() => {
     const interval = setInterval(() => {
