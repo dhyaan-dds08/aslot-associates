@@ -154,7 +154,6 @@ export default function ServicesCircle() {
                         ? "rgba(0,0,0,1)"
                         : "rgba(0,0,0,0.6)",
                     }}
-                 
                   />
 
                   {/* Label */}
@@ -229,7 +228,6 @@ export default function ServicesCircle() {
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </motion.div>
-
                 <motion.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
@@ -245,7 +243,6 @@ export default function ServicesCircle() {
             ))}
           </div>
         </div>
-
         {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
