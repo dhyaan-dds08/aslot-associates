@@ -31,7 +31,7 @@ export default function ServicesCircle() {
     <section
       id="services"
       ref={sectionRef}
-      className="py-24 lg:py-33 bg-white overflow-hidden"
+      className="py-24 lg:py-32 bg-white overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Vertical line + Title with stagger */}
