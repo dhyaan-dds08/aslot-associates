@@ -56,14 +56,14 @@ const navLinks = [
           {/* Logo */}
 {/* Logo */}
 <Link href="/" className="flex items-center md:ml-0">
-  <div className="relative w-32 sm:w-36 h-8 sm:h-10 -ml-2">
+  <div className="relative w-64 sm:w-72 h-16 sm:h-20 -ml-2">
     <Image
-      src="/logo.svg"
+      src="/logo1.png"
       alt="Aslot & Associates"
       fill
       className="object-contain object-left"
       style={{
-        filter: isBlackBackground && !scrolled ? 'none' : 'invert(1)',
+        filter: isBlackBackground && !scrolled ? 'invert(1)' : 'none',
         transition: 'filter 0.3s ease'
       }}
       priority
