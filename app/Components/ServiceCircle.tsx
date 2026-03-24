@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function ServicesCircle() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -15,12 +16,12 @@ export default function ServicesCircle() {
   const circleRotate = useTransform(scrollYProgress, [0, 1], [0, 15]);
 
   const services = [
-    "CFO & Strategic Finance Advisory",
-    "Internal Audit & Governance Advisory",
-    "Statutory Audit",
-    "Transaction & Deal Advisory",
-    "Startup & Business Advisory",
-    "Investment & Capital Advisory",
+    { name: "CFO & Strategic Finance Advisory", href: "/services/cfo-strategic-finance" },
+    { name: "Internal Audit & Governance Advisory", href: "/services/internal-audit-governance" },
+    { name: "Statutory Audit", href: "/services/statutory-audit" },
+    { name: "Transaction & Deal Advisory", href: "/services/transaction-deal-advisory" },
+    { name: "NRI Taxation & Cross-Border Compliance", href: "/services/nri-taxation" },
+    { name: "Wealth Advisory", href: "/services/wealth-advisory" },
   ];
 
   // Circle is inset 20% on each side → center at 50%, radius = 30% of container
@@ -70,7 +71,7 @@ export default function ServicesCircle() {
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
-             
+
               className={`absolute rounded-full border border-black/60`}
               // inset must match circleInset
               {...{ style: { inset: `${circleInset}%`, rotate: circleRotate } }}
@@ -111,8 +112,9 @@ export default function ServicesCircle() {
               const isHovered = hoveredIndex === index;
 
               return (
-                <div
+                <Link
                   key={index}
+                  href={service.href}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                   className="cursor-pointer"
@@ -174,14 +176,13 @@ export default function ServicesCircle() {
                     }}
                   >
                     <span
-                      className={`font-inter text-xs md:text-sm tracking-widest uppercase leading-relaxed transition-colors duration-300 ${
-                        isHovered ? "text-black font-medium" : "text-gray-700"
-                      }`}
+                      className={`font-inter text-xs md:text-sm tracking-widest uppercase leading-relaxed transition-colors duration-300 ${isHovered ? "text-black font-medium" : "text-gray-700"
+                        }`}
                     >
-                      {service}
+                      {service.name}
                     </span>
                   </motion.div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -190,56 +191,65 @@ export default function ServicesCircle() {
         {/* Mobile/Tablet layout - vertical timeline */}
         <div className="lg:hidden">
           <div className="relative flex flex-col items-center">
-            {/* Continuous vertical line */}
+            {/* Vertical line - only spans between first and last circle centers */}
             <motion.div
               initial={{ scaleY: 0 }}
               whileInView={{ scaleY: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-black/20 origin-top"
+              className="absolute left-1/2 -translate-x-1/2 w-px bg-black/20 origin-top"
+              style={{
+                top: "calc(1.5rem + 6px)",
+                bottom: "calc(1.5rem + 6px + 0.75rem + 1.75rem)",
+              }}
             />
 
             {services.map((service, index) => (
-              <motion.div
+              <Link
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.12,
-                  ease: [0.25, 0.1, 0.25, 1],
-                }}
-                viewport={{ once: true, margin: "-50px" }}
+                href={service.href}
                 className="relative flex flex-col items-center py-6"
               >
                 <motion.div
-                  whileInView={{
-                    scale: [0.5, 1.1, 1],
-                  }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{
-                    duration: 0.5,
-                    delay: index * 0.12 + 0.2,
-                    times: [0, 0.7, 1],
+                    duration: 0.6,
+                    delay: index * 0.12,
+                    ease: [0.25, 0.1, 0.25, 1],
                   }}
-                  viewport={{ once: true }}
-                  className="relative z-10 w-12 h-12 rounded-full border-2 border-black/60 bg-gray-50 flex items-center justify-center"
+                  viewport={{ once: true, margin: "-50px" }}
+                  className="flex flex-col items-center"
                 >
-                  <span className="font-inter text-xs text-gray-600">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                  <motion.div
+                    whileInView={{
+                      scale: [0.5, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: index * 0.12 + 0.2,
+                      times: [0, 0.7, 1],
+                    }}
+                    viewport={{ once: true }}
+                    className="relative z-10 w-12 h-12 rounded-full border-2 border-black/60 bg-gray-50 flex items-center justify-center"
+                  >
+                    <span className="font-inter text-xs text-gray-600">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.12 + 0.35 }}
+                    viewport={{ once: true }}
+                    className="mt-3 text-center max-w-[250px] bg-white px-3 py-1 relative z-10"
+                  >
+                    <span className="font-inter text-sm tracking-widest uppercase text-gray-700 leading-relaxed">
+                      {service.name}
+                    </span>
+                  </motion.div>
                 </motion.div>
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.12 + 0.35 }}
-                  viewport={{ once: true }}
-                  className="mt-3 text-center max-w-[250px]"
-                >
-                  <span className="font-inter text-sm tracking-widest uppercase text-gray-700 leading-relaxed">
-                    {service}
-                  </span>
-                </motion.div>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
@@ -249,7 +259,7 @@ export default function ServicesCircle() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="font-inter text-base text-gray-500 text-center max-w-2xl mx-auto mt-16 lg:mt-20"
+          className="font-cormorant text-2xl md:text-3xl lg:text-4xl font-light italic text-gray-800 text-center max-w-3xl mx-auto mt-16 lg:mt-20 border-t border-b border-black/10 py-8"
         >
           Each engagement is partner-led and structured around long-term
           business outcomes.
