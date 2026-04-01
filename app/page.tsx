@@ -95,7 +95,7 @@ export default function HomePage() {
       <ServicesCircle />
 
       {/* Execution Support Section */}
-      <section className="py-0 lg:py-0 bg-white">
+      {/* <section className="py-0 lg:py-0 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <h2 className="font-cormorant text-3xl md:text-4xl lg:text-5xl font-light mb-6">
             Execution & Compliance Support
@@ -124,7 +124,7 @@ export default function HomePage() {
             Our execution work complements our advisory services and is delivered with the same emphasis on accuracy and timelines.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* Built for Long-Term Engagement */}
       <section className="py-24 lg:py-32 bg-white">

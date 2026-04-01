@@ -25,14 +25,14 @@ export default function ServicesCircle() {
   ];
 
   // Circle is inset 20% on each side → center at 50%, radius = 30% of container
-  const circleInset = 20;
+  const circleInset = 25;
   const circleRadius = 50 - circleInset; // 30% of container
 
   return (
     <section
       id="services"
       ref={sectionRef}
-      className="py-24 lg:py-32 bg-white overflow-hidden"
+      className="pt-24 pb-0 lg:pt-32 lg:pb-0 bg-white overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 lg:px-12">
         {/* Vertical line + Title with stagger */}
@@ -85,14 +85,7 @@ export default function ServicesCircle() {
               viewport={{ once: true }}
               className="absolute inset-0 flex items-center justify-center"
             >
-              <div className="text-center">
-                <p className="font-cormorant text-3xl xl:text-4xl font-light tracking-wide">
-                  THE
-                </p>
-                <p className="font-cormorant text-4xl xl:text-5xl font-medium tracking-wide">
-                  ADVISORY
-                </p>
-              </div>
+
             </motion.div>
 
             {/* Service items positioned around the circle */}
@@ -104,8 +97,12 @@ export default function ServicesCircle() {
               const dotX = 50 + circleRadius * Math.cos(radian);
               const dotY = 50 + circleRadius * Math.sin(radian);
 
-              // Labels sit further out
-              const labelRadius = circleRadius + 16;
+              // Adaptive label offset: more spacing at top/bottom, less at sides
+              const normalizedAngle = ((angle + 90 + 360) % 360);
+              const verticalness = Math.abs(Math.sin((normalizedAngle * Math.PI) / 180));
+              const labelOffset = 14 + verticalness * 4; // 14-18% based on vertical position
+
+              const labelRadius = circleRadius + labelOffset;
               const labelX = 50 + labelRadius * Math.cos(radian);
               const labelY = 50 + labelRadius * Math.sin(radian);
 
@@ -175,11 +172,13 @@ export default function ServicesCircle() {
                       scale: isHovered ? 1.05 : 1,
                     }}
                   >
-                    <span
-                      className={`font-inter text-xs md:text-sm tracking-widest uppercase leading-relaxed transition-colors duration-300 ${isHovered ? "text-black font-medium" : "text-gray-700"
-                        }`}
-                    >
+                    <span className={`font-inter text-xs md:text-sm tracking-widest uppercase leading-relaxed transition-colors duration-300 ${isHovered ? "text-black font-medium" : "text-gray-700"}`}>
                       {service.name}
+                      {service.name === "Wealth Advisory" && (
+                        <svg className="inline-block ml-1.5 w-4 h-4 -mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      )}
                     </span>
                   </motion.div>
                 </Link>
