@@ -14,11 +14,30 @@ export default function WorkWithUsPage() {
   const [resume, setResume] = useState<File | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Add form submission logic here
-    setSubmitted(true);
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+
+    const form = new FormData()
+    form.append('fullName', formData.fullName)
+    form.append('email', formData.email)
+    form.append('phone', formData.phone)
+    form.append('linkedinUrl', formData.linkedinUrl)
+
+    if (resume) {
+      form.append('resume', resume)
+    }
+
+    const res = await fetch('/api/send-application', {
+      method: 'POST',
+      body: form,
+    })
+
+    if (res.ok) {
+      setSubmitted(true)
+    } else {
+      alert('Something went wrong')
+    }
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -201,7 +220,7 @@ export default function WorkWithUsPage() {
           )}
         </div>
       </section>
-       <CTAFooter />
+      <CTAFooter />
     </>
   );
 }
