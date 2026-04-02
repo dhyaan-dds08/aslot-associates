@@ -1,6 +1,8 @@
 import { Resend } from 'resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const senderEmail = process.env.SENDER_EMAIL || 'ishan@aslotandassociates.com';
+const recipientEmail = process.env.RECIPIENT_EMAIL || 'ishan.aslot.ca@gmail.com';
 
 export async function POST(req: Request) {
     try {
@@ -15,8 +17,8 @@ export async function POST(req: Request) {
         const resumeBuffer = await resume.arrayBuffer()
 
         await resend.emails.send({
-            from: 'onboarding@resend.dev', // change later
-            to: 'ishan.aslot.ca@gmail.com',
+            from: senderEmail,
+            to: recipientEmail,
             subject: `New Application from ${fullName}`,
             html: `
         <h2>New Application</h2>
