@@ -59,7 +59,7 @@ export default function HomePage() {
           </motion.h1>
 
           {/* Progress dots indicator */}
-          <div className="flex gap-2 mb-12">
+          {/* <div className="flex gap-2 mb-12">
             {rotatingWords.map((_, index) => (
               <motion.div
                 key={index}
@@ -67,7 +67,7 @@ export default function HomePage() {
                   }`}
               />
             ))}
-          </div>
+          </div> */}
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

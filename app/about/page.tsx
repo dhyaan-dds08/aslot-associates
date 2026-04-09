@@ -98,7 +98,7 @@ export default function AboutPage() {
               </div>
 
               <p className="font-inter text-sm text-gray-500 mb-3">
-                Partner, Chartered Accountant
+                Chartered Accountant
               </p>
             </motion.div>
 
