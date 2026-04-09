@@ -7,6 +7,7 @@ import CTAFooter from "./Components/CTAFooter";
 import ServicesCircle from "./Components/ServiceCircle";
 import Testimonials from "./Components/Testimonials";
 import Footer from "./Components/Footer";
+import StatsStrip from "./Components/StatsStrip";
 
 export default function HomePage() {
   const [currentWord, setCurrentWord] = useState(0);
@@ -93,6 +94,7 @@ export default function HomePage() {
 
       {/* Services Section */}
       <ServicesCircle />
+      <StatsStrip />
 
       {/* Execution Support Section */}
       {/* <section className="py-0 lg:py-0 bg-white">
